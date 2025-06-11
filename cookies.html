@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Cookies Policy - Everleaves Garden Care</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+  <style>
+    /* Global reset and styling */
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      background: #fff;
+      color: #374151;
+      line-height: 1.7;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    a {
+      color: #059669;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+    a:hover, a:focus {
+      color: #047857;
+      outline: none;
+    }
+    header, footer {
+      background-color: #065f46;
+      color: #d1fae5;
+      padding: 1.25rem 1.5rem;
+      flex-shrink: 0;
+    }
+    header nav, footer .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .logo {
+      font-weight: 800;
+      font-size: 1.5rem;
+      color: #bbf7d0;
+      user-select: none;
+      letter-spacing: 0.05em;
+    }
+    .nav-links {
+      display: flex;
+      gap: 1.5rem;
+    }
+    .nav-links a {
+      color: #bbf7d0;
+      font-weight: 600;
+      font-size: 1rem;
+      padding: 0.25rem 0;
+      position: relative;
+    }
+    .nav-links a::after {
+      content: '';
+      display: block;
+      width: 0;
+      height: 2px;
+      background: #bbf7d0;
+      transition: width 0.3s ease;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+    }
+    .nav-links a:hover::after, .nav-links a:focus::after {
+      width: 100%;
+      outline: none;
+    }
+    main {
+      flex: 1 0 auto;
+      max-width: 900px;
+      margin: 2.5rem auto 3rem;
+      padding: 0 1rem 6rem;
+    }
+    h1, h2, h3 {
+      color: #111827;
+      margin-top: 2rem;
+      margin-bottom: 1rem;
+      font-weight: 800;
+      line-height: 1.2;
+    }
+    h1 {
+      font-size: 2.75rem;
+    }
+    h2 {
+      font-size: 2rem;
+    }
+    h3 {
+      font-size: 1.25rem;
+    }
+    p, ul, ol {
+      font-size: 1rem;
+      margin-top: 0;
+      margin-bottom: 1rem;
+      color: #374151;
+    }
+    ul, ol {
+      padding-left: 1.5rem;
+    }
+    ul li, ol li {
+      margin-bottom: 0.5rem;
+    }
+    /* Responsive typography */
+    @media (max-width: 767px) {
+      h1 {
+        font-size: 2rem;
+      }
+      h2 {
+        font-size: 1.5rem;
+      }
+      h3 {
+        font-size: 1.125rem;
+      }
+    }
+    /* Footer contact */
+    footer .contact-info {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      align-items: center;
+      font-size: 0.9rem;
+    }
+    footer .material-icons {
+      font-size: 20px;
+      color: #bbf7d0;
+      margin-right: 0.25rem;
+      vertical-align: middle;
+    }
+    a:focus-visible {
+      outline: 3px solid #059669;
+      outline-offset: 2px;
+    }
+
+    /* Cookie Consent Dialog */
+    #cookie-consent {
+      position: fixed;
+      bottom: 1.5rem;
+      left: 50%;
+      transform: translateX(-50%);
+      background: rgba(5, 150, 105, 0.95);
+      color: white;
+      padding: 1.5rem 2rem;
+      max-width: 420px;
+      border-radius: 16px;
+      box-shadow: 0 6px 20px rgba(5,150,105,0.5);
+      z-index: 11000;
+      font-weight: 600;
+      font-size: 1rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      box-sizing: border-box;
+      user-select: none;
+    }
+    #cookie-consent p {
+      margin: 0;
+      font-weight: 600;
+      line-height: 1.3;
+    }
+    #cookie-consent .buttons {
+      display: flex;
+      justify-content: flex-end;
+      gap: 0.75rem;
+    }
+    #cookie-consent button {
+      background: white;
+      border: none;
+      color: #059669;
+      padding: 0.5rem 1.25rem;
+      border-radius: 10px;
+      font-weight: 700;
+      font-size: 0.95rem;
+      cursor: pointer;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+    #cookie-consent button:hover,
+    #cookie-consent button:focus {
+      background-color: #bbf7d0;
+      outline: none;
+    }
+    #cookie-consent button.decline {
+      background: transparent;
+      color: white;
+      border: 2px solid white;
+    }
+    #cookie-consent button.decline:hover,
+    #cookie-consent button.decline:focus {
+      background: rgba(255 255 255 / 0.2);
+      color: white;
+      border-color: white;
+      outline: none;
+    }
+    #cookie-consent[hidden] {
+      display: none !important;
+    }
+
+  </style>
+</head>
+<body>
+  <header>
+    <nav aria-label="Primary navigation">
+      <div class="logo" tabindex="0">Everleaves Garden Care</div>
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="terms.html">Terms &amp; Conditions</a>
+        <a href="cookies.html" aria-current="page">Cookies Policy</a>
+        <a href="contact.html">Contact</a>
+      </div>
+    </nav>
+  </header>
+
+  <main role="main" aria-labelledby="page-title">
+    <h1 id="page-title">Cookies Policy</h1>
+
+    <p>This Cookies Policy explains how <strong>Everleaves Garden Care</strong> ("we", "us", and "our") uses cookies and similar tracking technologies when you visit or use our website. Your privacy and trust are very important to us. Please read carefully to understand what cookies are, how we use them, and your choices regarding cookies.</p>
+
+    <h2>1. What are Cookies?</h2>
+    <p>Cookies are small text files placed on your device (computer, tablet, smartphone) by websites you visit. They are widely used to make websites work more efficiently, provide functionality, and improve user experience. Cookies can also help website owners analyze how visitors interact with their site.</p>
+
+    <h2>2. Types of Cookies We Use</h2>
+    <p>We use several different types of cookies on our website, including:</p>
+    <ul>
+      <li><strong>Strictly Necessary Cookies:</strong> These cookies are essential for the website to function properly and cannot be switched off. They enable basic functions such as page navigation and access to secure areas.</li>
+      <li><strong>Performance Cookies:</strong> These cookies collect anonymous information about how visitors use our website, such as which pages are visited most often. We use this data to improve the website's performance and user experience.</li>
+      <li><strong>Functional Cookies:</strong> These cookies enable the website to remember choices you make, such as language preferences or login information, to provide a more personalized experience.</li>
+      <li><strong>Targeting or Advertising Cookies:</strong> These cookies are used to deliver relevant ads to you and limit the number of times you see an ad. They also help measure the effectiveness of advertising campaigns.</li>
+    </ul>
+
+    <h2>3. How We Use Cookies</h2>
+    <p>By using our website, cookies help us:</p>
+    <ul>
+      <li>Recognize you as a returning visitor and provide personalized content.</li>
+      <li>Remember your preferences and user settings for a seamless experience.</li>
+      <li>Analyze website traffic and usage patterns to improve performance.</li>
+      <li>Ensure security and detect fraudulent activity.</li>
+      <li>Provide targeted advertisements and marketing.</li>
+    </ul>
+
+    <h2>4. Third-Party Cookies</h2>
+    <p>Some cookies used on our site are set by third-party services, such as Google Analytics, advertising partners, and social media platforms. These third parties may collect information about your online activities across different websites. We do not control these cookies and encourage you to review their privacy policies for more information.</p>
+
+    <h2>5. Your Choices Regarding Cookies</h2>
+    <p>You can control or block cookies by adjusting your browser settings. You may:</p>
+    <ul>
+      <li>Accept or reject cookies entirely.</li>
+      <li>Delete cookies stored on your device.</li>
+      <li>Set your browser to notify you when a cookie is placed.</li>
+    </ul>
+    <p>However, please note that disabling some cookies may affect the functionality and user experience of our website.</p>
+    <p>Additionally, on this site, you may accept or decline cookies via the consent dialog – your choice will be remembered on subsequent visits.</p>
+
+    <h2>6. Cookie Consent Dialog</h2>
+    <p>When you first visit our website, you will see a cookie consent dialog giving you the option to accept or decline non-essential cookies. This mechanism helps you control your privacy preferences in accordance with applicable laws and regulations.</p>
+
+    <h2>7. Cookies We Set</h2>
+    <p>Examples of cookies set by us and their purposes:</p>
+    <ul>
+      <li><strong>Session Cookies:</strong> Temporary cookies that expire when you close your browser, used for session management and security.</li>
+      <li><strong>Persistent Cookies:</strong> Remain on your device for a set period or until manually deleted to remember preferences across visits.</li>
+      <li><strong>Analytics Cookies:</strong> Track website usage to help us understand visitor interactions.</li>
+    </ul>
+
+    <h2>8. How to Manage Cookies in Different Browsers</h2>
+    <p>Here are links to guides on managing cookies in popular browsers:</p>
+    <ul>
+      <li><a href="https://support.google.com/chrome/answer/95647" target="_blank" rel="noopener">Google Chrome</a></li>
+      <li><a href="https://support.mozilla.org/en-US/kb/cookies-information-websites-store-on-your-computer" target="_blank" rel="noopener">Mozilla Firefox</a></li>
+      <li><a href="https://support.apple.com/en-us/HT201265" target="_blank" rel="noopener">Safari (Apple)</a></li>
+      <li><a href="https://support.microsoft.com/en-us/help/17442/windows-internet-explorer-delete-manage-cookies" target="_blank" rel="noopener">Internet Explorer</a></li>
+      <li><a href="https://support.microsoft.com/en-us/microsoft-edge/delete-cookies-in-microsoft-edge-63947406-40ac-c3b8-57b9-2a946a29ae09" target="_blank" rel="noopener">Microsoft Edge</a></li>
+    </ul>
+
+    <h2>9. Data Protection and Security</h2>
+    <p>We are committed to protecting your privacy and your data. Cookies do not store personal information such as your name or address. However, some data we collect may be combined with cookies for analytics or security purposes.</p>
+    <p>We implement industry-standard technical and organizational security measures to protect information collected through cookies and other methods.</p>
+
+    <h2>10. Updates to This Cookies Policy</h2>
+    <p>We may update this Cookies Policy from time to time to reflect changes in our practices or legal obligations. We recommend reviewing this page periodically to stay informed about our use of cookies.</p>
+
+    <h2>11. Contact Us</h2>
+    <p>If you have any questions or concerns about our Cookies Policy, please contact us:</p>
+    <address>
+      <strong>Everleaves Garden Care</strong><br />
+      8615 Old Seward Hwy,<br />
+      Anchorage, Alaska 99515 USA<br />
+      Phone: <a href="tel:+18776628786">+1 (877) 662 8786</a><br />
+      Email: <a href="mailto:privacy@everleavesgardencare.com">privacy@everleavesgardencare.com</a>
+    </address>
+  </main>
+
+  <footer role="contentinfo">
+    <div class="container">
+      <address class="contact-info">
+        <span class="material-icons" aria-hidden="true">location_on</span>
+        8615 Old Seward Hwy, Anchorage, Alaska 99515 USA
+      </address>
+      <address class="contact-info" style="margin-left: 1rem;">
+        <span class="material-icons" aria-hidden="true">phone</span>
+        <a href="tel:+18776628786" style="color: #bbf7d0;">+1 (877) 662 8786</a>
+      </address>
+    </div>
+  </footer>
+
+  <!-- Cookie Consent Dialog -->
+  <div id="cookie-consent" role="dialog" aria-live="polite" aria-label="Cookie consent dialog" aria-modal="true" hidden>
+    <p>We use cookies to enhance your experience. By continuing, you accept our use of cookies.</p>
+    <div class="buttons">
+      <button type="button" id="accept-cookies" aria-label="Accept cookies">Accept</button>
+      <button type="button" id="decline-cookies" class="decline" aria-label="Decline cookies">Decline</button>
+    </div>
+  </div>
+
+  <script>
+    (function() {
+      const consentBox = document.getElementById('cookie-consent');
+      const acceptBtn = document.getElementById('accept-cookies');
+      const declineBtn = document.getElementById('decline-cookies');
+
+      function setCookieConsent(consent) {
+        localStorage.setItem('cookiesConsent', consent);
+        consentBox.hidden = true;
+      }
+
+      function checkConsent() {
+        return localStorage.getItem('cookiesConsent');
+      }
+
+      function showConsentBox() {
+        consentBox.hidden = false;
+        acceptBtn.focus();
+      }
+
+      // Initialize
+      const consent = checkConsent();
+      if (consent === null) {
+        // Show consent box if no decision yet
+        showConsentBox();
+      } else if (consent === 'accepted') {
+        // Proceed with cookies enabled (e.g., analytics or functional cookies)
+        // Here you can initialize analytics scripts if needed
+        // Example: initAnalytics();
+      } else {
+        // Cookies declined, do not load non-essential cookies
+        // Example: disableAnalytics();
+      }
+
+      acceptBtn.addEventListener('click', () => {
+        setCookieConsent('accepted');
+        // Initialize analytics or other cookies-requiring features here
+      });
+
+      declineBtn.addEventListener('click', () => {
+        setCookieConsent('declined');
+        // Disable analytics or cookies here if applicable
+      });
+    })();
+  </script>
+</body>
+</html>

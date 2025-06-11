@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Everleaves Garden Care - Gardening, Pruning & Irrigation Services</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+  <style>
+    /* Reset and global */
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      line-height: 1.6;
+      background: #fff;
+      color: #4b5563; /* Gray 600 */
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      scroll-behavior: smooth;
+    }
+    a {
+      color: #059669; /* Emerald 600 */
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+    a:hover, a:focus {
+      color: #047857; /* Emerald 700 */
+      outline: none;
+    }
+    main {
+      flex: 1 0 auto;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 3rem 1.5rem 4rem;
+      width: 100%;
+    }
+    h1, h2, h3, h4 {
+      color: #111827; /* Gray 900 */
+      font-weight: 800;
+      margin-top: 0;
+      margin-bottom: 0.5rem;
+      line-height: 1.2;
+    }
+    h1 {
+      font-size: 3rem;
+    }
+    h2 {
+      font-size: 2.25rem;
+      margin-bottom: 1rem;
+    }
+    h3 {
+      font-size: 1.5rem;
+      margin-bottom: 0.75rem;
+    }
+    p {
+      margin-top: 0;
+      margin-bottom: 1.25rem;
+      font-size: 1rem;
+      max-width: 850px;
+    }
+    /* Container for consistent padding */
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      width: 100%;
+    }
+
+    /* HEADER */
+    header {
+      position: sticky;
+      top: 0;
+      background: #f9fafb;
+      border-bottom: 1px solid #e5e7eb;
+      z-index: 1000;
+      padding: 1rem 1.5rem;
+      box-shadow: 0 2px 4px rgb(0 0 0 / 0.05);
+    }
+    nav {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+    .logo {
+      font-weight: 800;
+      font-size: 1.75rem;
+      color: #059669;
+      user-select: none;
+      letter-spacing: 0.05em;
+    }
+    .nav-links {
+      display: flex;
+      gap: 2.5rem;
+    }
+    .nav-links a {
+      font-weight: 600;
+      font-size: 1rem;
+      padding: 0.5rem 0;
+      position: relative;
+    }
+    .nav-links a::after {
+      content: '';
+      display: block;
+      width: 0;
+      height: 2px;
+      background: #059669;
+      transition: width 0.25s ease;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+    }
+    .nav-links a:hover::after, .nav-links a:focus::after {
+      width: 100%;
+      outline: none;
+    }
+
+    /* Hamburger Menu for mobile */
+    .mobile-menu-button {
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      display: none;
+      padding: 0.25rem;
+      color: #059669;
+      transition: transform 0.3s ease;
+    }
+    .mobile-menu-button:focus {
+      outline: 2px solid #059669;
+      outline-offset: 2px;
+    }
+    .mobile-menu-button.open {
+      transform: rotate(90deg);
+    }
+
+    /* Mobile Navigation */
+    .mobile-nav {
+      display: none;
+      flex-direction: column;
+      margin-top: 0.5rem;
+      gap: 1rem;
+      background: #f9fafb;
+      border-top: 1px solid #d1d5db;
+      padding-top: 1rem;
+    }
+    .mobile-nav a {
+      font-weight: 600;
+      font-size: 1rem;
+      padding: 0.75rem 0;
+      border-bottom: 1px solid #e5e7eb;
+      color: #059669;
+    }
+    .mobile-nav a:last-child {
+      border-bottom: none;
+    }
+    .mobile-nav a:hover, .mobile-nav a:focus {
+      background: #d1fae5;
+      color: #065f46;
+      outline: none;
+    }
+
+    /* HERO SECTION */
+    .hero {
+      padding: 4rem 1.5rem 6rem;
+      text-align: center;
+      background: linear-gradient(135deg, #BBF7D0 0%, #34D399 100%);
+      border-radius: 16px;
+      color: #064E3B;
+      margin-bottom: 4rem;
+      box-shadow: 0 10px 30px rgb(52 211 153 / 0.3);
+    }
+    .hero h1 {
+      font-size: 3.75rem;
+      font-weight: 800;
+      margin-bottom: 1rem;
+      max-width: 720px;
+      margin-left: auto;
+      margin-right: auto;
+      line-height: 1.1;
+    }
+    .hero p {
+      font-size: 1.25rem;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+      margin-bottom: 2.5rem;
+      font-weight: 600;
+    }
+    .hero .btn-primary {
+      background-color: #059669;
+      color: white;
+      font-weight: 700;
+      padding: 1rem 2.5rem;
+      border-radius: 12px;
+      border: none;
+      font-size: 1.125rem;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      box-shadow: 0 6px 15px rgba(5, 150, 105, 0.4);
+    }
+    .hero .btn-primary:hover,
+    .hero .btn-primary:focus {
+      background-color: #047857;
+      outline: none;
+    }
+
+    /* SECTION STYLES */
+    section.content-section {
+      margin-bottom: 3rem;
+      padding-left: 1rem;
+      padding-right: 1rem;
+    }
+    section.content-section h2 {
+      margin-bottom: 1.5rem;
+      border-left: 8px solid #059669;
+      padding-left: 1rem;
+      font-weight: 800;
+      color: #064E3B;
+    }
+    section.content-section p {
+      max-width: 900px;
+      margin-bottom: 1.25rem;
+      color: #374151;
+    }
+    /* Card style for specific sections or highlights */
+    .card {
+      background: #ecfdf5;
+      border-radius: 12px;
+      padding: 2rem 2.5rem;
+      margin-top: 2rem;
+      box-shadow: 0 4px 8px rgb(5 150 105 / 0.1);
+      max-width: 900px;
+    }
+    .card h3 {
+      color: #065f46;
+      margin-bottom: 1rem;
+    }
+
+    /* Footer */
+    footer {
+      background: #065f46;
+      color: #d1fae5;
+      padding: 2rem 1.5rem;
+      flex-shrink: 0;
+    }
+    footer .container {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      max-width: 1200px;
+      margin: 0 auto;
+      font-size: 1rem;
+      line-height: 1.4;
+    }
+    footer a {
+      color: #bbf7d0;
+      font-weight: 600;
+      word-break: break-word;
+    }
+    footer .contact-info {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      align-items: center;
+    }
+    footer .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    footer .material-icons {
+      font-size: 20px;
+      color: #bbf7d0;
+    }
+
+    /* Image styling */
+    .image-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit,minmax(280px,1fr));
+      gap: 1.5rem;
+      margin: 2rem 0 3rem;
+    }
+    .image-grid img {
+      width: 100%;
+      border-radius: 16px;
+      box-shadow: 0 8px 24px rgb(0 0 0 / 0.1);
+      object-fit: cover;
+      aspect-ratio: 4 / 3;
+      max-height: 220px;
+    }
+    .image-grid img:focus {
+      outline: 3px solid #059669;
+    }
+
+    /* Price list styles */
+    .price-list {
+      margin-top: 1rem;
+      max-width: 700px;
+      border-collapse: collapse;
+      width: 100%;
+      box-shadow: 0 4px 10px rgb(5 150 105 / 0.15);
+      border-radius: 12px;
+      overflow: hidden;
+    }
+    .price-list caption {
+      caption-side: top;
+      font-weight: 700;
+      font-size: 1.5rem;
+      padding: 1rem;
+      background: #d1fae5;
+      color: #065f46;
+      text-align: left;
+      border-bottom: 2px solid #059669;
+      user-select: none;
+    }
+    .price-list th, .price-list td {
+      padding: 1rem 1.5rem;
+      text-align: left;
+    }
+    .price-list th {
+      background-color: #059669;
+      color: white;
+      font-weight: 600;
+    }
+    .price-list tr:nth-child(even) {
+      background-color: #ecfdf5;
+    }
+    .price-list tr:hover {
+      background-color: #bbf7d0;
+    }
+
+    /* Responsive Styles */
+    @media (max-width: 767px) {
+      .nav-links {
+        display: none;
+      }
+      .mobile-menu-button {
+        display: block;
+      }
+      .hero h1 {
+        font-size: 2.25rem;
+      }
+      .hero p {
+        font-size: 1rem;
+      }
+      main {
+        padding: 2rem 1rem 3rem;
+      }
+      section.content-section h2 {
+        font-size: 1.75rem;
+        padding-left: 0.75rem;
+        border-left-width: 5px;
+      }
+      .price-list {
+        font-size: 0.9rem;
+      }
+    }
+
+    @media (min-width: 768px) and (max-width: 1023px) {
+      main {
+        padding: 3rem 2rem 4rem;
+      }
+      .hero h1 {
+        font-size: 3rem;
+      }
+      .nav-links {
+        gap: 1.5rem;
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .mobile-nav {
+        display: none !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header role="banner" aria-label="Primary">
+    <nav role="navigation" aria-label="Main navigation">
+      <div class="logo" tabindex="0" aria-label="Everleaves Garden Care logo">Everleaves Garden Care</div>
+      <button id="mobileMenuButton" aria-label="Toggle menu" aria-expanded="false" class="mobile-menu-button" aria-controls="mobileMenu">
+        <span class="material-icons" aria-hidden="true">menu</span>
+      </button>
+      <div class="nav-links" role="menubar">
+        <a href="index.html" aria-current="page" role="menuitem" tabindex="0">Home</a>
+        <a href="privacy.html" role="menuitem" tabindex="0">Privacy Policy</a>
+        <a href="terms.html" role="menuitem" tabindex="0">Terms &amp; Conditions</a>
+        <a href="cookies.html" role="menuitem" tabindex="0">Cookies Policy</a>
+        <a href="contact.html" role="menuitem" tabindex="0">Contact</a>
+      </div>
+    </nav>
+    <nav id="mobileMenu" class="mobile-nav" aria-label="Mobile navigation" hidden>
+      <a href="index.html" aria-current="page" tabindex="0">Home</a>
+      <a href="privacy.html" tabindex="0">Privacy Policy</a>
+      <a href="terms.html" tabindex="0">Terms &amp; Conditions</a>
+      <a href="cookies.html" tabindex="0">Cookies Policy</a>
+      <a href="contact.html" tabindex="0">Contact</a>
+    </nav>
+  </header>
+  
+  <main role="main">
+    <section class="hero" aria-labelledby="hero-title">
+      <h1 id="hero-title">Everleaves Garden Care</h1>
+      <p>Your trusted partner in expert gardening, pruning, and irrigation services to transform and maintain your green spaces with care.</p>
+      <button class="btn-primary" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})" aria-label="Contact Us Now">
+        Contact Us Now
+      </button>
+    </section>
+
+    <section id="services" class="content-section" aria-labelledby="services-title">
+      <h2 id="services-title">Our Comprehensive Services</h2>
+      <p>At Everleaves Garden Care, we provide expert gardening, pruning, and irrigation solutions designed to protect and enhance your outdoor spaces. Whether you're focused on lawn maintenance, designing a flourishing garden, or implementing efficient irrigation systems, our team delivers quality work customized to your needs.</p>
+      
+      <div class="image-grid" aria-label="Gallery of services images">
+        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/d55c87e6-7341-42f4-8e1a-f1b122b1dd4e.png" alt="Beautiful modern garden design with assorted colorful flowers, shrubs, and curving pathways under natural sunlight" tabindex="0" />
+        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/c4b2a15b-9b1f-4535-ae26-067f4f6a9bf9.png" alt="Professional gardener pruning a mature tree with safety equipment on a sunny day in a residential garden" tabindex="0" />
+        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/4075b15e-822b-4c9f-9679-c69c38e20869.png" alt="Technician installing drip irrigation system pipes along garden beds with healthy green plants" tabindex="0" />
+        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/20abf754-7e61-41f4-8255-2d05508103de.png" alt="Close-up on lush green freshly mowed lawn with garden tools laid on the side, indicating lawn care services" tabindex="0" />
+        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/f5ceddd1-e0e2-46ec-be94-04603c667d6b.png" alt="Gardener wearing gloves collecting autumn leaves with rake near ornamental trees in a garden" tabindex="0" />
+        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/4ef39312-7ab8-41a2-a794-6695362f7316.png" alt="Gardener inspecting plant leaves for disease and pests, using magnifying glass under soft natural light" tabindex="0" />
+        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/d85a48cd-4548-4782-a757-f450cc3ec697.png" alt="Elegant landscape lighting highlighting garden paths and decorative trees in an evening setting" tabindex="0" />
+        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/0ccc07c1-12db-4990-bf04-20e1e407bd86.png" alt="Close-up of fresh organic mulch around flower beds in a vibrant garden" tabindex="0" />
+        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/f50fcd9c-b420-4790-ba0f-ec5989a9245e.png" alt="Set of various gardening tools including pruning shears, gloves, and watering cans on wooden table" tabindex="0" />
+        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/49e9229c-c71e-4dbb-b138-1eb6b51a1d5f.png" alt="Healthy native plants and flowers thriving in a well-maintained sustainable garden area" tabindex="0" />
+        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/d0f55684-9df2-4a7a-858a-c78db9b90f7e.png" alt="Close-up of a smart irrigation sprinkler controller panel showing scheduled watering times" tabindex="0" />
+        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/06819581-96e4-4364-adbe-a63b97e4a4c6.png" alt="Team of gardeners working together planting trees and shrubs in a community garden" tabindex="0" />
+      </div>
+
+      <p>Our services include:</p>
+      <ul>
+        <li><strong>Garden design and installation:</strong> We create beautiful, sustainable garden layouts that thrive in Anchorage's climate.</li>
+        <li><strong>Tree and shrub pruning:</strong> Proper pruning techniques to maintain health and aesthetics, promote growth, and prevent disease.</li>
+        <li><strong>Irrigation system installation and maintenance:</strong> Customized watering solutions to conserve water and support healthy plants.</li>
+        <li><strong>Lawn care and fertilization:</strong> Regular upkeep including mowing, aeration, and nourishing for vibrant lawns.</li>
+        <li><strong>Seasonal cleanups:</strong> Preparing your garden for each season with leaf removal, mulching, and winter care.</li>
+        <li><strong>Plant health management:</strong> Diagnosing and treating plant illnesses and pests with eco-friendly products.</li>
+        <li><strong>Landscape lighting:</strong> Enhance your garden's beauty and safety with professional outdoor lighting installation.</li>
+      </ul>
+    </section>
+
+    <section id="pricing" class="content-section" aria-labelledby="pricing-title">
+      <h2 id="pricing-title">Services &amp; Pricing</h2>
+      <p>Our service rates are competitive and tailored to the size and scope of your landscaping needs. Below is a guideline showing typical pricing for our most requested services. For exact quotes, please contact us directly.</p>
+      <table class="price-list" summary="Price list of different gardening, pruning and irrigation services">
+        <caption>Everleaves Garden Care Price List</caption>
+        <thead>
+          <tr>
+            <th>Service</th>
+            <th>Typical Price Range (USD)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Garden Design &amp; Installation</td>
+            <td>$2,000 - $8,000</td>
+          </tr>
+          <tr>
+            <td>Tree and Shrub Pruning</td>
+            <td>$150 - $600 per tree/shrub</td>
+          </tr>
+          <tr>
+            <td>Irrigation System Installation</td>
+            <td>$1,200 - $5,000</td>
+          </tr>
+          <tr>
+            <td>Lawn Care &amp; Fertilization</td>
+            <td>$80 - $250 per visit</td>
+          </tr>
+          <tr>
+            <td>Seasonal Cleanup (Spring/Fall)</td>
+            <td>$400 - $1,200</td>
+          </tr>
+          <tr>
+            <td>Plant Health Assessment &amp; Treatment</td>
+            <td>$120 - $450</td>
+          </tr>
+          <tr>
+            <td>Landscape Lighting Installation</td>
+            <td>$1,000 - $3,500</td>
+          </tr>
+          <tr>
+            <td>Mulching &amp; Soil Conditioning</td>
+            <td>$150 - $600 per area</td>
+          </tr>
+          <tr>
+            <td>Native Plant Installation</td>
+            <td>$250 - $1,000</td>
+          </tr>
+          <tr>
+            <td>Smart Irrigation Controller Setup</td>
+            <td>$300 - $800</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section id="expertise" class="content-section" aria-labelledby="expertise-title">
+      <h2 id="expertise-title">Expertise in Pruning and Gardening Techniques</h2>
+      <p>Proper pruning is essential for healthy, vigorous plants and a visually appealing garden. Our certified arborists and gardening specialists utilize the latest pruning techniques tailored to different species of trees and shrubs.</p>
+      <p><strong>Types of pruning we specialize in include:</strong></p>
+      <ul>
+        <li><em>Thinning:</em> Selective removal of branches to reduce density and improve air circulation.</li>
+        <li><em>Heading:</em> Cutting back branches to encourage bud growth and shape plants for aesthetic purposes.</li>
+        <li><em>Reduction pruning:</em> Reducing size to maintain safety near structures and power lines.</li>
+        <li><em>Renewal pruning:</em> Removing old or dead branches to stimulate new growth.</li>
+      </ul>
+
+      <div class="image-grid" aria-label="Expertise related images">
+        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/07103e10-c5b7-4f88-b6fd-b5c6d085b0dc.png" alt="Close-up of gardener carefully pruning branches of a flowering shrub in backyard" tabindex="0" />
+        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/e1bc9930-1909-4ee3-8929-ce327431cdbe.png" alt="Hands mixing organic compost into garden soil to improve health and plant growth" tabindex="0" />
+      </div>
+
+      <p>We understand Anchorage's unique climate challenges and tailor our gardening and pruning practices to ensure your landscape thrives in every season.</p>
+      <p>From choosing native plant species to soil health management, our expert advice guides you toward a sustainable, low-maintenance garden that enhances the natural beauty of your property.</p>
+    </section>
+
+    <section id="sustainability" class="content-section" aria-labelledby="sustainability-title">
+      <h2 id="sustainability-title">Sustainable Irrigation and Environmental Stewardship</h2>
+      <p>Water conservation is a critical component of our irrigation services. Our irrigation specialists design and install efficient irrigation systems using smart timers, drip systems, and rain sensors to minimize water waste.</p>
+      <p>Implementing sustainable irrigation helps your garden maintain optimal moisture without excess runoff or evaporation, preserving natural resources and reducing utility bills.</p>
+      <p>Additionally, we use environmentally safe fertilizers and pest control methods, ensuring that your garden is healthy and safe for children, pets, and local wildlife.</p>
+      <div class="card" tabindex="0" aria-label="Environmental benefits of sustainable garden care">
+        <h3>Environmental Benefits of Our Services</h3>
+        <ul>
+          <li>Reducing water consumption with smart irrigation technologies</li>
+          <li>Protecting pollinators by using native plants and avoiding harmful chemicals</li>
+          <li>Promoting biodiversity and soil health through organic mulching and composting</li>
+          <li>Minimizing lawn chemical runoff to protect local waterways</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="testimonials" class="content-section" aria-labelledby="testimonials-title">
+      <h2 id="testimonials-title">What Our Clients Say</h2>
+      <article aria-label="Testimonial from Jane D.">
+        <p>"Everleaves Garden Care transformed my backyard into a lush, beautiful oasis. Their pruning expertise and irrigation system have made maintenance easier and the plants healthier. Highly recommend for anyone wanting reliable and professional garden care!"</p>
+        <footer><strong>- Jane D., Anchorage, AK</strong></footer>
+      </article>
+      <article aria-label="Testimonial from Michael T.">
+        <p>"Professional and efficient service from start to finish. The team explained every step and their sustainable practices made me feel confident about the environmental impact. My garden has never looked better."</p>
+        <footer><strong>- Michael T., Anchorage, AK</strong></footer>
+      </article>
+      <article aria-label="Testimonial from Sophia K.">
+        <p>"Excellent customer service and expert knowledge in pruning. Everleaves brought new life to my trees and shrubs, improving both appearance and health. I appreciate their focus on eco-friendly solutions."</p>
+        <footer><strong>- Sophia K., Anchorage, AK</strong></footer>
+      </article>
+    </section>
+
+    <section id="disclaimer" class="content-section" aria-labelledby="disclaimer-title">
+      <h2 id="disclaimer-title">Disclaimer</h2>
+      <p>
+        The information provided by Everleaves Garden Care on this website is for general informational purposes only. While we strive to keep the content accurate and up to date, we make no representations or warranties of any kind, express or implied, about the completeness, accuracy,
+        reliability, suitability, or availability with respect to the website or the information, products, services, or related graphics contained on the website for any purpose. Any reliance you place on such information is therefore strictly at your own risk.
+      </p>
+      <p>
+        In no event will Everleaves Garden Care be liable for any loss or damage including without limitation, indirect or consequential loss or damage, or any loss or damage whatsoever arising from loss of data or profits arising out of, or in connection with, the use of this website or the services described herein.
+      </p>
+      <p>
+        Through this website, you are able to link to other websites which are not under the control of Everleaves Garden Care. We have no control over the nature, content, and availability of those sites. The inclusion of any links does not necessarily imply a recommendation or endorse the views expressed within them.
+      </p>
+      <p>
+        The services described herein are subject to regional regulations, availability, and weather conditions. All gardening, pruning, and irrigation activities should be performed by qualified professionals aware of these considerations. The website content is not intended as a substitute for professional advice.
+      </p>
+      <p>
+        Everleaves Garden Care expressly disclaims any liability for errors or omissions in the content or for damages arising from the use of the website or its services. It is your responsibility to verify any information before relying on it. Our team recommends consulting with certified experts and local authorities before undertaking any major landscaping projects or purchasing equipment.
+      </p>
+      <p>
+        By using this website, you acknowledge and accept this disclaimer in full. If you do not agree with any part of this disclaimer, please do not use our site or services. For detailed advice tailored to your specific situation, please contact us directly.
+      </p>
+    </section>
+
+    <section id="contact" class="content-section" aria-labelledby="contact-title">
+      <h2 id="contact-title">Contact Everleaves Garden Care</h2>
+      <p>Ready to nurture your garden and boost curb appeal with professional care? Reach out to Everleaves Garden Care today for a consultation or a custom quote.</p>
+      <p><strong>Phone:</strong> <a href="tel:+18776628786" aria-label="Call +1 877 662 8786">+1 (877) 662 8786</a></p>
+      <p><strong>Address:</strong> 8615 Old Seward Hwy, Anchorage, Alaska 99515 USA</p>
+    </section>
+  </main>
+
+  <footer role="contentinfo">
+    <div class="container">
+      <div class="contact-info" aria-label="Contact information">
+        <div class="contact-item">
+          <span class="material-icons" aria-hidden="true">location_on</span>
+          <address>8615 Old Seward Hwy, Anchorage, Alaska 99515 USA</address>
+        </div>
+        <div class="contact-item">
+          <span class="material-icons" aria-hidden="true">phone</span>
+          <a href="tel:+18776628786" aria-label="Telephone number">+1 (877) 662 8786</a>
+        </div>
+      </div>
+      <p>© 2024 Everleaves Garden Care. All Rights Reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    // Mobile menu toggle with accessibility
+    const mobileMenuButton = document.getElementById('mobileMenuButton');
+    const mobileMenu = document.getElementById('mobileMenu');
+    mobileMenuButton.addEventListener('click', () => {
+      const expanded = mobileMenuButton.getAttribute('aria-expanded') === 'true' || false;
+      mobileMenuButton.setAttribute('aria-expanded', !expanded);
+      mobileMenu.hidden = expanded;
+      if (!expanded) {
+        mobileMenu.querySelector('a').focus();
+      }
+    });
+
+    // Close mobile menu when a nav link is clicked (for accessibility)
+    mobileMenu.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.hidden = true;
+        mobileMenuButton.setAttribute('aria-expanded', false);
+        mobileMenuButton.focus();
+      });
+    });
+  </script>
+</body>
+</html>
+

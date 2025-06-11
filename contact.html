@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Contact Us - Everleaves Garden Care</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+  <style>
+    /* Reset and global */
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      background: #fff;
+      color: #374151;
+      line-height: 1.7;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    a {
+      color: #059669;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+    a:hover, a:focus {
+      color: #047857;
+      outline: none;
+    }
+    header, footer {
+      background-color: #065f46;
+      color: #d1fae5;
+      padding: 1.25rem 1.5rem;
+      flex-shrink: 0;
+    }
+    header nav, footer .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .logo {
+      font-weight: 800;
+      font-size: 1.5rem;
+      color: #bbf7d0;
+      user-select: none;
+      letter-spacing: 0.05em;
+    }
+    .nav-links {
+      display: flex;
+      gap: 1.5rem;
+    }
+    .nav-links a {
+      color: #bbf7d0;
+      font-weight: 600;
+      font-size: 1rem;
+      padding: 0.25rem 0;
+      position: relative;
+    }
+    .nav-links a::after {
+      content: '';
+      display: block;
+      width: 0;
+      height: 2px;
+      background: #bbf7d0;
+      transition: width 0.3s ease;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+    }
+    .nav-links a:hover::after, .nav-links a:focus::after {
+      width: 100%;
+      outline: none;
+    }
+    main {
+      flex: 1 0 auto;
+      max-width: 900px;
+      margin: 2.5rem auto 3rem;
+      padding: 0 1rem;
+    }
+    h1, h2, h3 {
+      color: #111827;
+      margin-top: 2rem;
+      margin-bottom: 1rem;
+      font-weight: 800;
+      line-height: 1.2;
+    }
+    h1 {
+      font-size: 2.75rem;
+    }
+    h2 {
+      font-size: 2rem;
+    }
+    h3 {
+      font-size: 1.25rem;
+    }
+    p, ul, ol {
+      font-size: 1rem;
+      margin-top: 0;
+      margin-bottom: 1rem;
+      color: #374151;
+    }
+    ul, ol {
+      padding-left: 1.5rem;
+    }
+    ul li, ol li {
+      margin-bottom: 0.5rem;
+    }
+    label {
+      display: block;
+      margin-bottom: 0.3rem;
+      font-weight: 600;
+      color: #111827;
+    }
+    input[type="text"],
+    input[type="email"],
+    input[type="tel"],
+    textarea,
+    select {
+      width: 100%;
+      padding: 0.6rem 0.8rem;
+      margin-bottom: 1.25rem;
+      border: 1.5px solid #d1d5db;
+      border-radius: 8px;
+      font-size: 1rem;
+      font-family: 'Inter', sans-serif;
+      color: #374151;
+      transition: border-color 0.3s ease;
+    }
+    input[type="text"]:focus,
+    input[type="email"]:focus,
+    input[type="tel"]:focus,
+    textarea:focus,
+    select:focus {
+      outline: none;
+      border-color: #059669;
+      box-shadow: 0 0 5px #86efac;
+    }
+    textarea {
+      min-height: 140px;
+      resize: vertical;
+    }
+    button[type="submit"] {
+      background-color: #059669;
+      border: none;
+      color: white;
+      padding: 0.85rem 2rem;
+      border-radius: 12px;
+      font-weight: 700;
+      font-size: 1.125rem;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      box-shadow: 0 6px 15px rgba(5, 150, 105, 0.4);
+    }
+    button[type="submit"]:hover,
+    button[type="submit"]:focus {
+      background-color: #047857;
+      outline: none;
+    }
+    fieldset {
+      border: 1px solid #d1d5db;
+      border-radius: 12px;
+      padding: 1.5rem 2rem 2rem;
+      margin-bottom: 3rem;
+      box-shadow: 0 4px 8px rgb(5 150 105 / 0.1);
+    }
+    legend {
+      font-weight: 800;
+      font-size: 1.25rem;
+      color: #064E3B;
+      padding: 0 0.5rem;
+    }
+
+    /* Responsive typography */
+    @media (max-width: 767px) {
+      h1 {
+        font-size: 2rem;
+      }
+      h2 {
+        font-size: 1.5rem;
+      }
+      h3 {
+        font-size: 1.125rem;
+      }
+    }
+    /* Footer contact */
+    footer .contact-info {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      align-items: center;
+      font-size: 0.9rem;
+    }
+    footer .material-icons {
+      font-size: 20px;
+      color: #bbf7d0;
+      margin-right: 0.25rem;
+      vertical-align: middle;
+    }
+    a:focus-visible {
+      outline: 3px solid #059669;
+      outline-offset: 2px;
+    }
+
+  </style>
+</head>
+<body>
+  <header>
+    <nav aria-label="Primary navigation">
+      <div class="logo" tabindex="0">Everleaves Garden Care</div>
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="terms.html">Terms &amp; Conditions</a>
+        <a href="cookies.html">Cookies Policy</a>
+        <a href="contact.html" aria-current="page">Contact</a>
+      </div>
+    </nav>
+  </header>
+
+  <main role="main" aria-labelledby="page-title">
+    <h1 id="page-title">Get in Touch with Everleaves Garden Care</h1>
+
+    <p>We’re here to help with all your landscaping, gardening, pruning, and irrigation needs. Whether you have questions about our services, need a custom quote, or want expert advice about your garden, our friendly team is ready to assist you.</p>
+
+    <h2>Contact Information</h2>
+    <p>
+      <strong>Phone:</strong>
+      <a href="tel:+18776628786" aria-label="Call +1 877 662 8786">+1 (877) 662 8786</a><br />
+      <strong>Email:</strong>
+      <a href="mailto:info@everleavesgardencare.com">info@everleavesgardencare.com</a><br />
+      <strong>Address:</strong> 8615 Old Seward Hwy, Anchorage, Alaska 99515 USA
+    </p>
+
+    <h2>Business Hours</h2>
+    <p>We are available to take your calls and provide consultations during the following hours:</p>
+    <ul>
+      <li>Monday to Friday: 8:00 AM - 6:00 PM</li>
+      <li>Saturday: 9:00 AM - 3:00 PM</li>
+      <li>Sunday: Closed</li>
+    </ul>
+
+    <h2>Request a Quote or Consultation</h2>
+    <form id="contact-form" aria-label="Contact form for inquiries" novalidate>
+      <fieldset>
+        <legend>Send Us a Message</legend>
+
+        <label for="name">Full Name <span aria-hidden="true" style="color: red;">*</span></label>
+        <input type="text" id="name" name="name" placeholder="Your full name" required aria-required="true" />
+
+        <label for="email">Email Address <span aria-hidden="true" style="color: red;">*</span></label>
+        <input type="email" id="email" name="email" placeholder="you@example.com" required aria-required="true" />
+
+        <label for="phone">Phone Number (Optional)</label>
+        <input type="tel" id="phone" name="phone" placeholder="+1 123 456 7890" pattern="^\+?[0-9\s\-().]{7,20}$" aria-describedby="phone-help" />
+        <small id="phone-help">Include country code if outside USA</small>
+
+        <label for="subject">Subject <span aria-hidden="true" style="color: red;">*</span></label>
+        <select id="subject" name="subject" required aria-required="true">
+          <option value="" disabled selected>Select a subject</option>
+          <option value="service-quote">Request a Service Quote</option>
+          <option value="general-question">General Question</option>
+          <option value="feedback">Feedback</option>
+          <option value="other">Other</option>
+        </select>
+
+        <label for="message">Message <span aria-hidden="true" style="color: red;">*</span></label>
+        <textarea id="message" name="message" placeholder="Write your message here..." required aria-required="true"></textarea>
+
+        <button type="submit" aria-label="Submit contact form">Send Message</button>
+      </fieldset>
+    </form>
+
+    <h2>Preparing for Your Service Appointment</h2>
+    <p>To ensure a smooth and efficient service experience, here are some helpful tips before your scheduled appointment:</p>
+    <ul>
+      <li>Clear access to your garden or outdoor area to allow our team to work safely.</li>
+      <li>Identify specific plants or areas you want to prioritize or discuss during service.</li>
+      <li>Inform us about any areas requiring special care or challenges, such as pest problems or irrigation issues.</li>
+      <li>Ensure pets and children are safely away from work areas during service.</li>
+      <li>Be available during or shortly after the appointment to answer any questions or provide feedback.</li>
+    </ul>
+
+    <h2>We Value Your Feedback</h2>
+    <p>Your satisfaction drives us to excel in every project. After service, we welcome your comments to continue improving our offerings and customer experience. You can reach us anytime via phone or email, or use the contact form above for comments or concerns.</p>
+
+    <script>
+      (function() {
+        const form = document.getElementById('contact-form');
+        form.addEventListener('submit', function(e) {
+          e.preventDefault();
+          const name = form.name.value.trim();
+          const email = form.email.value.trim();
+          const subject = form.subject.value;
+          const message = form.message.value.trim();
+          const phone = form.phone.value.trim();
+
+          if (!name) {
+            alert('Please enter your full name.');
+            form.name.focus();
+            return;
+          }
+          if (!email || !validateEmail(email)) {
+            alert('Please enter a valid email address.');
+            form.email.focus();
+            return;
+          }
+          if (!subject) {
+            alert('Please select a subject.');
+            form.subject.focus();
+            return;
+          }
+          if (!message) {
+            alert('Please enter your message.');
+            form.message.focus();
+            return;
+          }
+          if (phone && !validatePhone(phone)) {
+            alert('Please enter a valid phone number.');
+            form.phone.focus();
+            return;
+          }
+          alert('Thank you for contacting Everleaves Garden Care! We will get back to you shortly.');
+          form.reset();
+        });
+
+        function validateEmail(email) {
+          const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+          return re.test(email.toLowerCase());
+        }
+        function validatePhone(phone) {
+          const re = /^\+?[0-9\s\-().]{7,20}$/;
+          return re.test(phone);
+        }
+      })();
+    </script>
+  </main>
+
+  <footer role="contentinfo">
+    <div class="container">
+      <address class="contact-info">
+        <span class="material-icons" aria-hidden="true">location_on</span>
+        8615 Old Seward Hwy, Anchorage, Alaska 99515 USA
+      </address>
+      <address class="contact-info" style="margin-left: 1rem;">
+        <span class="material-icons" aria-hidden="true">phone</span>
+        <a href="tel:+18776628786" style="color: #bbf7d0;">+1 (877) 662 8786</a>
+      </address>
+    </div>
+  </footer>
+</body>
+</html>
